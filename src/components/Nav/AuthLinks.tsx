@@ -5,7 +5,7 @@ import { type User } from "next-auth";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useModalStore } from "@/stores/modalStore";
-import Modal from "../Modal";
+import Modal from "../util/Modal";
 
 const AuthLinks = () => {
   const { data: session, status } = useSession();
