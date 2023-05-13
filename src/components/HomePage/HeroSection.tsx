@@ -5,19 +5,19 @@ import MainCar from "@/assets/cars/main-car.png";
 
 const HeroSection = () => {
   return (
-    <div className="mx-auto flex min-h-[calc(100vh-120px)] items-center justify-center px-10 lg:w-[80%] lg:justify-between xl:px-40">
+    <div className="flex min-h-[calc(100vh-120px)] items-center justify-center gap-8 px-10 2xl:mx-auto 2xl:w-[70%] 2xl:justify-between">
       {/* Informations */}
       <section className="flex flex-col gap-4 text-center md:text-start">
-        <p className="text-xl">Plan your trip now</p>
-        <h1 className="text-5xl font-bold">
-          Save <span className="text-red-500">big</span> with our{" "}
-          <br className="hidden md:block" /> car rental
+        <p className="text-2xl font-semibold">Plan your trip now</p>
+        <h1 className="text-6xl font-bold">
+          Save <span className="text-red-500">big</span> with{" "}
+          <br className="hidden md:block" /> our car rental
         </h1>
-        <p className="mx-auto max-w-[350px] text-sm text-gray-500 md:mx-0">
+        <p className="max-w-[350px] text-gray-500">
           Rent the car of your dreams. Unbeatable prices, unlimited miles,
           flexible pick-up options and much more.
         </p>
-        <div className="mx-auto flex gap-4 md:mx-0">
+        <div className="flex flex-wrap justify-center gap-4 text-xl">
           <button className="flex items-center gap-2 rounded-sm bg-red-500 p-4 text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white">
             <span className="font-semibold">Book a Ride</span>
             <AiFillCheckCircle size={15} />
@@ -30,8 +30,8 @@ const HeroSection = () => {
       </section>
 
       {/* Image */}
-      <section className="hidden lg:block">
-        <Image priority width={500} height={500} src={MainCar} alt="main-car" />
+      <section className="relative hidden md:h-[250px] md:w-[400px] lg:block 2xl:h-[450px] 2xl:w-[800px]">
+        <Image priority fill src={MainCar} alt="main-car" />
       </section>
     </div>
   );

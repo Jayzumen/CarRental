@@ -29,7 +29,7 @@ export const links = [
 
 const Navbar = () => {
   return (
-    <header className="m-auto py-4 lg:w-[80%]">
+    <header className="m-auto py-4 xl:w-[70%]">
       <nav className="flex w-full items-center justify-between px-8">
         {/* Logo */}
         <section className="flex flex-col items-center">

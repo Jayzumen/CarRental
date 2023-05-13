@@ -6,7 +6,7 @@ type Props = {
 
 const Banner = ({ children }: Props) => {
   return (
-    <div className=" bg-black p-20 text-white dark:bg-white dark:text-black">
+    <div className="bg-black p-20 text-white dark:bg-white dark:text-black">
       {children}
     </div>
   );

@@ -3,13 +3,16 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="mt-auto flex items-center p-20">
-      <div className="mx-auto flex flex-wrap justify-center gap-x-12 gap-y-8 text-center lg:w-[80%] lg:justify-between lg:gap-20">
+    <footer className="mt-auto flex items-center justify-center border-t-2 border-gray-200 px-10 py-20 dark:border-gray-800">
+      <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 p-4 text-center lg:justify-around lg:gap-20 2xl:w-[70%]">
         <section className="flex flex-col gap-4">
-          <h4 className="text-xl font-bold">
+          <h5 className="text-xl font-bold text-red-500">
             CAR
-            <span className="font-light"> Rental</span>
-          </h4>
+            <span className="font-light text-black dark:text-white">
+              {" "}
+              Rental
+            </span>
+          </h5>
           <p className="mx-auto max-w-[200px] text-sm font-light">
             We offers a big range of vehicles for all your driving needs. We
             have the perfect car to meet your needs.
@@ -20,24 +23,32 @@ const Footer = () => {
               <span className="font-bold">Phone:</span> (123) 456-7890
             </p>
             <p>
-              <span className="font-bold">Email:</span>
+              <span className="font-bold">Email: </span>
               carrental@gmail.com
             </p>
           </div>
         </section>
 
         <section className="flex flex-col gap-4">
-          <h4 className="text-xl font-bold">COMPANY</h4>
+          <h5 className="text-xl font-bold">COMPANY</h5>
           <ul className="flex flex-col gap-2">
-            <li>Careers</li>
-            <li>Mobile</li>
-            <li>Blog</li>
-            <li>How we work</li>
+            <li className="cursor-pointer transition-colors hover:text-red-500">
+              Careers
+            </li>
+            <li className="cursor-pointer transition-colors hover:text-red-500">
+              Mobile
+            </li>
+            <li className="cursor-pointer transition-colors hover:text-red-500">
+              Blog
+            </li>
+            <li className="cursor-pointer transition-colors hover:text-red-500">
+              How we work
+            </li>
           </ul>
         </section>
 
         <section className="flex flex-col gap-4">
-          <h4 className="text-xl font-bold">WORKING HOURS</h4>
+          <h5 className="text-xl font-bold">WORKING HOURS</h5>
           <p>
             <span className="font-bold">Mon - Fri:</span> 8:00 AM - 8:00PM
           </p>
@@ -47,7 +58,7 @@ const Footer = () => {
         </section>
 
         <section className="flex max-w-[250px] flex-col items-center gap-4">
-          <h4 className="text-xl font-bold">FOLLOW US</h4>
+          <h5 className="text-xl font-bold">FOLLOW US</h5>
           <div className="flex gap-4">
             <FaFacebookF className="h-8 w-8 cursor-pointer rounded-full bg-gray-200 p-1 transition hover:scale-105 dark:text-black " />
             <FaInstagram className="h-8 w-8 cursor-pointer rounded-full bg-gray-200 p-1 transition hover:scale-105 dark:text-black " />

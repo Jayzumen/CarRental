@@ -5,8 +5,8 @@ export const metadata = {
   description: "Testimonials",
 };
 
-const Testimonials = () => {
+const TestimonialsPage = () => {
   return <div>Testimonials</div>;
 };
 
-export default Testimonials;
+export default TestimonialsPage;

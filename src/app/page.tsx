@@ -2,11 +2,12 @@ import Booking from "@/components/HomePage/Booking";
 import CallToAction from "@/components/HomePage/CallToAction";
 import CarShowCase from "@/components/HomePage/CarShowCase";
 import HeroSection from "@/components/HomePage/HeroSection";
+import Testimonials from "@/components/HomePage/Testimonials";
 import Banner from "@/components/util/Banner";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex w-full flex-col">
       <HeroSection />
       <Booking />
       <CallToAction />
@@ -23,6 +24,7 @@ export default function Home() {
           </p>
         </div>
       </Banner>
+      <Testimonials />
     </div>
   );
 }
