@@ -8,9 +8,10 @@ const Testimonials = () => {
         Client&apos;s Testimonials
       </h3>
       <p className="mx-auto max-w-[600px] text-center text-gray-500">
-        Discover the positive impact we've made on the our clients by reading
-        through their testimonials. Our clients have experienced our service and
-        results, and they're eager to share their positive experiences with you.
+        Discover the positive impact we&apos;ve made on the our clients by
+        reading through their testimonials. Our clients have experienced our
+        service and results, and they&apos;re eager to share their positive
+        experiences with you.
       </p>
       <div className="my-12 flex flex-wrap justify-center gap-12">
         <section className="flex max-w-[450px] flex-col gap-4 border border-gray-700 bg-white p-4 shadow-sm shadow-gray-700 dark:bg-[#141414]">
