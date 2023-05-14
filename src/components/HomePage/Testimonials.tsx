@@ -2,7 +2,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Testimonials = () => {
   return (
-    <div className="flex min-h-[calc(100vh-100px)] flex-col justify-center gap-4 bg-slate-100 py-8 dark:bg-[#121212]">
+    <div className="flex min-h-[calc(100vh-100px)] flex-col justify-center gap-4 py-8">
       <p className="text-center text-xl font-semibold">Reviewed by People</p>
       <h3 className="text-center text-5xl font-bold">
         Client&apos;s Testimonials
