@@ -67,20 +67,29 @@ const AuthLinks = () => {
               <p className="text-center text-xl font-bold">Sign In</p>
               <button
                 className="rounded-lg border border-slate-800 p-4 shadow-md shadow-slate-800 transition-colors duration-300 hover:bg-red-500 hover:text-white"
-                onClick={() => handleSignIn("google")}
+                onClick={() => {
+                  handleSignIn("google");
+                  modalToggle();
+                }}
               >
                 Sign in with Google
               </button>
               <div className="border-2 border-slate-800" />
               <button
                 className="rounded-lg border border-slate-800 p-4 shadow-md shadow-slate-800 transition-colors duration-300 hover:bg-red-500 hover:text-white"
-                onClick={() => handleSignIn("github")}
+                onClick={() => {
+                  handleSignIn("github");
+                  modalToggle();
+                }}
               >
                 Sign in with Github
               </button>
               <div className="border-2 border-slate-800" />
               <button
-                onClick={testLogin}
+                onClick={() => {
+                  testLogin();
+                  modalToggle();
+                }}
                 className="rounded-lg border border-slate-800 p-4 shadow-md shadow-slate-800 transition-colors duration-300 hover:bg-red-500 hover:text-white"
               >
                 Sign in as a Guest
