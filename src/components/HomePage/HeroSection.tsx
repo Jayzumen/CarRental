@@ -13,11 +13,11 @@ const HeroSection = () => {
           Save <span className="text-red-500">big</span> with{" "}
           <br className="hidden md:block" /> our car rental
         </h1>
-        <p className="max-w-[350px] text-gray-500">
+        <p className="mx-auto max-w-[350px] text-gray-500 md:mx-0">
           Rent the car of your dreams. Unbeatable prices, unlimited miles,
           flexible pick-up options and much more.
         </p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl">
+        <div className="flex flex-wrap justify-center gap-4 text-xl md:justify-start">
           <button className="flex items-center gap-2 rounded-sm bg-red-500 p-4 text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white">
             <span className="font-semibold">Book a Ride</span>
             <AiFillCheckCircle size={15} />
