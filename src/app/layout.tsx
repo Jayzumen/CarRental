@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className + "bg-slate-100 dark:bg-[#121212]"}>
         <MainProvider>
           <Navbar />
-          <main className="min-h-[calc(100vh-160px)]">{children}</main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </MainProvider>
       </body>

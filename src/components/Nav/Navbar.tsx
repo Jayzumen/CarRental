@@ -29,8 +29,8 @@ export const links = [
 
 const Navbar = () => {
   return (
-    <header className="m-auto py-4 xl:w-[70%]">
-      <nav className="flex w-full items-center justify-between px-8">
+    <header className="absolute inset-0 z-10 h-20 py-4">
+      <nav className="flex w-full items-center justify-between px-8 xl:mx-auto xl:w-[70%]">
         {/* Logo */}
         <section className="flex flex-col items-center">
           <p className="text-xl font-bold text-red-500">CAR</p>

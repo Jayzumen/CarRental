@@ -14,7 +14,7 @@ const Modal = (props: Props) => {
     <div
       onClick={props.toggle}
       className={`
-    fixed inset-0 z-10 flex items-center justify-center transition-colors
+    fixed inset-0 z-20 flex items-center justify-center transition-colors
     ${props.open ? "visible bg-black/20" : "invisible"}
     `}
     >
@@ -22,7 +22,7 @@ const Modal = (props: Props) => {
       <div
         onClick={(e) => e.stopPropagation()}
         className={`
-         z-20 rounded-xl border border-slate-800 bg-white p-6 shadow-md shadow-slate-800 transition-all duration-300 dark:bg-black
+         rounded-xl border border-slate-800 bg-white p-6 shadow-md shadow-slate-800 transition-all duration-300 dark:bg-black
         ${props.open ? "scale-100 opacity-100" : "scale-90 opacity-0"}
         `}
       >
