@@ -3,13 +3,46 @@
 import { AiFillCar } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
+import { cars } from "@/utils/carModels";
+import { locations } from "@/utils/locations";
+import { useReservationModalStore } from "@/stores/modalStore";
+import ReservationModal from "../util/ReservationModal";
+import { useReservationStore } from "@/stores/reservationStore";
+import { useSession } from "next-auth/react";
+import { FormEvent } from "react";
+import { darkToast, lightToast } from "@/lib/toasts";
+import { useTheme } from "next-themes";
 
 const Booking = () => {
+  const { isOpen, toggle } = useReservationModalStore();
+  const { reservationData, handleSubmit } = useReservationStore();
+  const { status } = useSession();
+  const { resolvedTheme } = useTheme();
+  const currentDate: string = new Date().toISOString().split("T")[0];
+
+  const handleBooking = (e: FormEvent<HTMLFormElement>) => {
+    if (status === "unauthenticated") {
+      e.preventDefault();
+      if (resolvedTheme === "light") {
+        darkToast("You need to be logged in to book a car");
+      } else {
+        lightToast("You need to be logged in to book a car");
+      }
+    }
+    if (status === "authenticated") {
+      handleSubmit(e);
+      toggle();
+    }
+  };
+
   return (
     <div className="min-h-[600px] p-4 lg:mx-auto lg:w-[70%]">
       <div className="flex flex-col gap-4 rounded-md border border-gray-400 bg-white p-12 shadow-lg shadow-gray-400 dark:border-gray-800 dark:bg-black dark:shadow-gray-800">
         <h2 className="text-2xl font-bold">Book a car</h2>
-        <form className="grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-2 md:grid-rows-3">
+        <form
+          onSubmit={handleBooking}
+          className="grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-2 md:grid-rows-3"
+        >
           {/* Car select */}
           <div className="flex flex-col gap-2">
             <label
@@ -24,9 +57,11 @@ const Booking = () => {
               id="car"
               className="cursor-pointer rounded-md border border-gray-300 px-3 py-2"
             >
-              <option value="car1">Car 1</option>
-              <option value="car2">Car 2</option>
-              <option value="car3">Car 3</option>
+              {cars.map((car) => (
+                <option key={car.name} value={car.name}>
+                  {car.name}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -45,9 +80,11 @@ const Booking = () => {
               id="pickup"
               className="cursor-pointer rounded-md border border-gray-300 px-3 py-2"
             >
-              <option value="">Location 1</option>
-              <option value="">Location 2</option>
-              <option value="">Location 3</option>
+              {locations.map((l) => (
+                <option key={l} value={l}>
+                  {l}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -66,9 +103,11 @@ const Booking = () => {
               id="dropoff"
               className="cursor-pointer rounded-md border border-gray-300 px-3 py-2"
             >
-              <option value="">Location 1</option>
-              <option value="">Location 2</option>
-              <option value="">Location 3</option>
+              {locations.map((l) => (
+                <option key={l} value={l}>
+                  {l}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -84,6 +123,7 @@ const Booking = () => {
             <input
               required
               type="date"
+              min={currentDate}
               name="pickup-date"
               id="pickup-date"
               className="cursor-pointer rounded-md border border-gray-300 px-3 py-2"
@@ -102,6 +142,7 @@ const Booking = () => {
             <input
               required
               type="date"
+              min={currentDate}
               name="dropoff-date"
               id="dropoff-date"
               className="cursor-pointer rounded-md border border-gray-300 px-3 py-2"
@@ -110,12 +151,24 @@ const Booking = () => {
 
           {/* Submit */}
           <div className="flex items-end justify-start">
-            <button className="w-full rounded-sm bg-red-500 px-4 py-2 text-center text-xl text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white">
+            <button
+              type="submit"
+              className="w-full rounded-sm bg-red-500 px-4 py-2 text-center text-xl text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white"
+            >
               Search
             </button>
           </div>
         </form>
       </div>
+
+      {/* Reservation modal */}
+      {isOpen && (
+        <ReservationModal
+          open={isOpen}
+          toggle={toggle}
+          data={reservationData}
+        />
+      )}
     </div>
   );
 };

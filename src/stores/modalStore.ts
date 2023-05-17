@@ -5,7 +5,12 @@ interface IModalStore {
   toggle: () => void;
 }
 
-export const useModalStore = create<IModalStore>((set) => ({
+export const useLoginModalStore = create<IModalStore>((set) => ({
+  isOpen: false,
+  toggle: () => set((state) => ({ isOpen: !state.isOpen })),
+}));
+
+export const useReservationModalStore = create<IModalStore>((set) => ({
   isOpen: false,
   toggle: () => set((state) => ({ isOpen: !state.isOpen })),
 }));

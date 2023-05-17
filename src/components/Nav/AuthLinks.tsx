@@ -4,13 +4,13 @@ import { LoadingSpinner } from "@/lib/loaders";
 import { type User } from "next-auth";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useModalStore } from "@/stores/modalStore";
+import { useLoginModalStore } from "@/stores/modalStore";
 import Modal from "../util/Modal";
 
 const AuthLinks = () => {
   const { data: session, status } = useSession();
   const user = session?.user as User;
-  const { isOpen, toggle: modalToggle } = useModalStore();
+  const { isOpen, toggle: modalToggle } = useLoginModalStore();
 
   const router = useRouter();
 
