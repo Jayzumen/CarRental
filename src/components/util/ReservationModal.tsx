@@ -5,7 +5,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BsInfoCircleFill } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
-import { handleOverflow } from "@/lib/overflowHandler";
+import { useHandleOverflow } from "@/hooks/useOverflowHandler";
 
 type ReservationProps = {
   open: boolean;
@@ -14,9 +14,8 @@ type ReservationProps = {
 };
 
 const ReservationModal = (props: ReservationProps) => {
+  useHandleOverflow(props.open);
   if (!props.data) return null;
-
-  handleOverflow(props.open);
 
   const pickupDate = new Date(props.data.pickupDate);
   const dropoffDate = new Date(props.data.dropoffDate);

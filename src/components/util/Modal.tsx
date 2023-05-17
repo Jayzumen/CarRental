@@ -1,5 +1,5 @@
 "use client";
-import { handleOverflow } from "@/lib/overflowHandler";
+import { useHandleOverflow } from "@/hooks/useOverflowHandler";
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -10,7 +10,7 @@ type ModalProps = {
 };
 
 const Modal = (props: ModalProps) => {
-  handleOverflow(props.open);
+  useHandleOverflow(props.open);
   return (
     // backdrop
     <div

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const handleOverflow = (state: boolean) => {
+export const useHandleOverflow = (state: boolean) => {
   useEffect(() => {
     if (state) {
       document.body.style.overflow = "hidden";

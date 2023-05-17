@@ -7,11 +7,11 @@ import AuthLinks from "./AuthLinks";
 import ThemeButton from "./Themebutton";
 import { motion } from "framer-motion";
 import { links } from "./Navbar";
-import { handleOverflow } from "@/lib/overflowHandler";
+import { useHandleOverflow } from "@/hooks/useOverflowHandler";
 
 const MobileMenu = () => {
   const { isOpen: mobileOpen, toggle: mobileToggle } = useMobileMenuStore();
-  handleOverflow(mobileOpen);
+  useHandleOverflow(mobileOpen);
   return (
     <>
       <section className="flex md:hidden">

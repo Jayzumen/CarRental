@@ -6,14 +6,14 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useLoginModalStore } from "@/stores/modalStore";
 import Modal from "../util/Modal";
-import { handleOverflow } from "@/lib/overflowHandler";
+import { useHandleOverflow } from "@/hooks/useOverflowHandler";
 
 const AuthLinks = () => {
   const { data: session, status } = useSession();
   const user = session?.user as User;
   const { isOpen: loginModalOpen, toggle: modalToggle } = useLoginModalStore();
 
-  handleOverflow(loginModalOpen);
+  useHandleOverflow(loginModalOpen);
 
   const router = useRouter();
 
