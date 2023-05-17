@@ -6,11 +6,14 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useLoginModalStore } from "@/stores/modalStore";
 import Modal from "../util/Modal";
+import { handleOverflow } from "@/lib/overflowHandler";
 
 const AuthLinks = () => {
   const { data: session, status } = useSession();
   const user = session?.user as User;
-  const { isOpen, toggle: modalToggle } = useLoginModalStore();
+  const { isOpen: loginModalOpen, toggle: modalToggle } = useLoginModalStore();
+
+  handleOverflow(loginModalOpen);
 
   const router = useRouter();
 
@@ -57,12 +60,12 @@ const AuthLinks = () => {
       {status === "unauthenticated" && (
         <div>
           <button
-            className="transition duration-300 hover:text-red-500"
             onClick={modalToggle}
+            className="transition duration-300 hover:text-red-500"
           >
             Sign In
           </button>
-          <Modal open={isOpen} toggle={modalToggle}>
+          <Modal open={loginModalOpen} toggle={modalToggle}>
             <div className="flex flex-col gap-4 px-4">
               <p className="text-center text-xl font-bold">Sign In</p>
               <button

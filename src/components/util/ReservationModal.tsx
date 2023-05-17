@@ -5,15 +5,18 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BsInfoCircleFill } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
+import { handleOverflow } from "@/lib/overflowHandler";
 
-type Props = {
+type ReservationProps = {
   open: boolean;
   toggle: () => void;
   data: ReservationData | undefined;
 };
 
-const ReservationModal = (props: Props) => {
+const ReservationModal = (props: ReservationProps) => {
   if (!props.data) return null;
+
+  handleOverflow(props.open);
 
   const pickupDate = new Date(props.data.pickupDate);
   const dropoffDate = new Date(props.data.dropoffDate);
@@ -34,7 +37,7 @@ const ReservationModal = (props: Props) => {
       <div
         onClick={(e) => e.stopPropagation()}
         className={`
-         flex w-full flex-col border border-slate-800 bg-white shadow-md shadow-slate-800 transition-all duration-300 dark:bg-black md:w-[80%] xl:w-[60%]
+         fixed flex h-[80%] w-full flex-col overflow-y-scroll rounded-md border border-slate-800 bg-white shadow-md shadow-slate-800 transition-all duration-300 dark:bg-black md:w-[80%] md:overflow-y-auto lg:h-auto xl:w-[50%]
         ${props.open ? "scale-100 opacity-100" : "scale-90 opacity-0"}
         `}
       >
@@ -55,15 +58,15 @@ const ReservationModal = (props: Props) => {
             </h2>
           </div>
           {/* Reminder */}
-          <div className="flex flex-col items-center gap-4 bg-yellow-200 p-4 text-center text-black">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col items-center gap-4 bg-gray-300 p-4 text-center text-black">
+            <div className="flex flex-col items-center gap-2 md:flex-row">
               <BsInfoCircleFill size={30} className="text-red-500" />
               <p className="text-lg font-semibold">
                 Upon completing this reservation enquiry, you will receive:
               </p>
             </div>
             <p className="test-gray-500 mx-auto max-w-[400px]">
-              Your rental voucher to produce on arrival at the rental desk and a
+              Your rental voucher to show on arrival at the rental desk and a
               toll-free customer support number.
             </p>
           </div>

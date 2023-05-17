@@ -1,14 +1,16 @@
 "use client";
+import { handleOverflow } from "@/lib/overflowHandler";
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
-type Props = {
+type ModalProps = {
   open: boolean;
   children: React.ReactNode;
   toggle: () => void;
 };
 
-const Modal = (props: Props) => {
+const Modal = (props: ModalProps) => {
+  handleOverflow(props.open);
   return (
     // backdrop
     <div
