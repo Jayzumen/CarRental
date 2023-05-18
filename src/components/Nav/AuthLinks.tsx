@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useLoginModalStore } from "@/stores/modalStore";
 import Modal from "../util/Modal";
 import { useHandleOverflow } from "@/hooks/useOverflowHandler";
+import Link from "next/link";
 
 const AuthLinks = () => {
   const { data: session, status } = useSession();
@@ -45,9 +46,12 @@ const AuthLinks = () => {
     <div className="flex flex-col items-center gap-4 font-semibold md:flex-row">
       {status === "loading" && <LoadingSpinner size={30} />}
       {status === "authenticated" && (
-        <p className="transition duration-300 hover:text-red-500">
+        <Link
+          href={"/profile"}
+          className="transition duration-300 hover:text-red-500"
+        >
           {user.name?.split(" ")[0]}
-        </p>
+        </Link>
       )}
       {status === "authenticated" && (
         <button

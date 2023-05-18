@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { BsChevronRight } from "react-icons/bs";
 import MainCar from "@/assets/cars/main-car.png";
+import Link from "next/link";
+import ScrollLink from "../util/ScrollLink";
 
 const HeroSection = () => {
   return (
@@ -18,14 +22,20 @@ const HeroSection = () => {
           flexible pick-up options and much more.
         </p>
         <div className="flex flex-wrap justify-center gap-4 text-xl md:justify-start">
-          <button className="flex items-center gap-2 rounded-sm bg-red-500 p-4 text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white">
+          <ScrollLink
+            href="#booking"
+            className="flex items-center gap-2 rounded-sm bg-red-500 p-4 text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white"
+          >
             <span className="font-semibold">Book a Ride</span>
             <AiFillCheckCircle size={15} />
-          </button>
-          <button className="flex items-center gap-2 rounded-sm border border-black bg-black p-4 text-white transition duration-300 hover:bg-white hover:text-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white">
+          </ScrollLink>
+          <Link
+            href="/about"
+            className="flex items-center gap-2 rounded-sm border border-black bg-black p-4 text-white transition duration-300 hover:bg-white hover:text-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white"
+          >
             <span className="font-semibold">Learn More</span>
             <BsChevronRight size={15} />
-          </button>
+          </Link>
         </div>
       </section>
 

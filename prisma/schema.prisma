@@ -10,6 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Booking {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  price       Int
+  car        String
+  pickupLocation    String
+  dropoffLocation   String
+  pickupDate  String
+  dropoffDate String
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  @@index([userId])
+}
+
 
 // Necessary for Next auth
 model Account {
@@ -48,6 +63,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    bookings      Booking[]
 }
 
 model VerificationToken {

@@ -9,7 +9,6 @@ interface IReservationStore {
 
 export const useReservationStore = create<IReservationStore>((set) => ({
   reservationData: {
-    id: "",
     pickupDate: "",
     dropoffDate: "",
     pickupLocation: "",
@@ -22,7 +21,6 @@ export const useReservationStore = create<IReservationStore>((set) => ({
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const reservationData: ReservationData = {
-      id: "",
       pickupDate: data.get("pickup-date") as string,
       dropoffDate: data.get("dropoff-date") as string,
       pickupLocation: data.get("pickup") as string,

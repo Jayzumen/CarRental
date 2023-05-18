@@ -36,7 +36,7 @@ const Booking = () => {
   };
 
   return (
-    <div className="min-h-[600px] p-4 lg:mx-auto lg:w-[70%]">
+    <div id="booking" className="min-h-[600px] p-4 lg:mx-auto lg:w-[70%]">
       <div className="flex flex-col gap-4 rounded-md border border-gray-400 bg-white p-12 shadow-lg shadow-gray-400 dark:border-gray-800 dark:bg-black dark:shadow-gray-800">
         <h2 className="text-2xl font-bold">Book a car</h2>
         <form

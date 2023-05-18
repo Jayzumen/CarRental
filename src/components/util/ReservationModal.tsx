@@ -6,6 +6,7 @@ import { BsInfoCircleFill } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useHandleOverflow } from "@/hooks/useOverflowHandler";
+import { toast } from "react-hot-toast";
 
 type ReservationProps = {
   open: boolean;
@@ -22,6 +23,32 @@ const ReservationModal = (props: ReservationProps) => {
   const totalDays = Math.floor(
     (dropoffDate.getTime() - pickupDate.getTime()) / (1000 * 3600 * 24) + 1
   );
+  const totalPrice = props.data.price * totalDays;
+
+  const reservationData: ReservationData = {
+    pickupDate: props.data.pickupDate,
+    dropoffDate: props.data.dropoffDate,
+    pickupLocation: props.data.pickupLocation,
+    dropoffLocation: props.data.dropoffLocation,
+    car: props.data.car,
+    price: totalPrice,
+  };
+
+  const handleReserve = async (body: ReservationData) => {
+    const res = await fetch("/api/booking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (res.ok) {
+      props.toggle();
+    } else {
+      toast.error("Something went wrong");
+    }
+  };
 
   return (
     // backdrop
@@ -118,17 +145,23 @@ const ReservationModal = (props: ReservationProps) => {
 
               <p className=" text-center">
                 Total Price:
-                <span className="font-semibold">
-                  {" "}
-                  {props.data.price * totalDays} €
-                </span>
+                <span className="font-semibold"> {totalPrice} €</span>
               </p>
             </div>
           </div>
 
           {/* Reserve Button */}
           <div className="flex items-center justify-center p-8">
-            <button className="rounded-md bg-red-500 p-2 font-semibold text-white transition-colors duration-300 hover:bg-red-600">
+            <button
+              onClick={() =>
+                toast.promise(handleReserve(reservationData), {
+                  loading: "Reserving...",
+                  success: "Reservation Successful",
+                  error: "Something went wrong",
+                })
+              }
+              className="rounded-md bg-red-500 p-2 font-semibold text-white transition-colors duration-300 hover:bg-red-600"
+            >
               Reserve Now
             </button>
           </div>
