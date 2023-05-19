@@ -9,7 +9,11 @@ import Modal from "../util/Modal";
 import { useHandleOverflow } from "@/hooks/useOverflowHandler";
 import Link from "next/link";
 
-const AuthLinks = () => {
+type AuthLinksProps = {
+  mobileToggle?: () => void;
+};
+
+const AuthLinks = ({ mobileToggle }: AuthLinksProps) => {
   const { data: session, status } = useSession();
   const user = session?.user as User;
   const { isOpen: loginModalOpen, toggle: modalToggle } = useLoginModalStore();
@@ -49,6 +53,7 @@ const AuthLinks = () => {
         <Link
           href={"/profile"}
           className="transition duration-300 hover:text-red-500"
+          onClick={mobileToggle}
         >
           {user.name?.split(" ")[0]}
         </Link>

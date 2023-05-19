@@ -42,7 +42,7 @@ const MobileMenu = () => {
           </button>
           <section className="flex flex-col items-center gap-8 text-2xl font-semibold">
             <PageLinks toggle={mobileToggle} links={links} />
-            <AuthLinks />
+            <AuthLinks mobileToggle={mobileToggle} />
             <ThemeButton />
           </section>
         </motion.div>
