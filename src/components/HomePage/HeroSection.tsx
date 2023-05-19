@@ -9,7 +9,7 @@ import ScrollLink from "../util/ScrollLink";
 
 const HeroSection = () => {
   return (
-    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center gap-8 px-10 2xl:mx-auto 2xl:w-[70%] 2xl:justify-between">
+    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center gap-8 px-10 pt-12 2xl:mx-auto 2xl:w-[70%]">
       {/* Informations */}
       <section className="flex flex-col gap-4 text-center md:text-start">
         <p className="text-2xl font-semibold">Plan your trip now</p>
@@ -40,7 +40,7 @@ const HeroSection = () => {
       </section>
 
       {/* Image */}
-      <section className="relative hidden md:h-[250px] md:w-[400px] lg:block 2xl:h-[450px] 2xl:w-[800px]">
+      <section className="relative hidden md:h-[250px] md:w-[400px] lg:block 2xl:h-[350px] 2xl:w-[600px]">
         <Image priority fill src={MainCar} alt="main-car" />
       </section>
     </div>
