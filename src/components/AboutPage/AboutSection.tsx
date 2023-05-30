@@ -7,7 +7,7 @@ import { BsTools } from "react-icons/bs";
 
 const AboutSection = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-12 px-4 md:mx-auto lg:w-[80%] lg:flex-row lg:px-16 2xl:w-[60%]">
+    <div className="flex flex-col items-center justify-center gap-12 px-4 md:mx-auto lg:w-[80%] lg:flex-row lg:px-16 2xl:w-[70%]">
       <Image
         height={800}
         width={600}
@@ -19,7 +19,7 @@ const AboutSection = () => {
         <h3 className="text-5xl font-bold">
           You start the engine and your adventure begins
         </h3>
-        <p className="text-gray-500">
+        <p className="max-w-[600px] text-gray-500">
           Welcome to our car rental website! We are dedicated to providing you
           with a seamless and hassle-free experience, ensuring that your journey
           begins with us. Our user-friendly platform allows you to easily browse
