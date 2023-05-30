@@ -1,6 +1,8 @@
+import Testimonials from "@/components/HomePage/Testimonials";
+import Banner from "@/components/util/Banner";
 import PageHeader from "@/components/util/PageHeader";
 import Link from "next/link";
-import React from "react";
+import { AiFillPhone } from "react-icons/ai";
 
 export const metadata = {
   title: "Testimonials",
@@ -9,7 +11,7 @@ export const metadata = {
 
 const TestimonialsPage = () => {
   return (
-    <div>
+    <>
       <PageHeader>
         <h1 className="text-4xl font-bold">Testimonials</h1>
         <div className="flex gap-2">
@@ -22,7 +24,21 @@ const TestimonialsPage = () => {
           <p className="text-lg font-semibold">/ Testimonials</p>
         </div>
       </PageHeader>
-    </div>
+      <div className="flex flex-col gap-12 pt-[400px]">
+        <Testimonials />
+        <Banner>
+          <div className="flex flex-wrap justify-center gap-4">
+            <p className="text-3xl font-bold">
+              Book a car by getting in touch with us
+            </p>
+            <div className="flex items-center gap-4 text-red-500">
+              <AiFillPhone size={40} />{" "}
+              <p className="text-3xl font-semibold">(123) 456-7890</p>
+            </div>
+          </div>
+        </Banner>
+      </div>
+    </>
   );
 };
 
