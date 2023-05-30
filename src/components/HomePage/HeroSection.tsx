@@ -9,7 +9,7 @@ import ScrollLink from "../util/ScrollLink";
 
 const HeroSection = () => {
   return (
-    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center gap-8 px-10 2xl:mx-auto 2xl:w-[70%] 2xl:justify-between">
+    <div className="flex min-h-screen items-center justify-center gap-8 px-10 2xl:mx-auto 2xl:w-[70%] 2xl:justify-between">
       {/* Informations */}
       <section className="flex flex-col gap-4 text-center md:text-start">
         <p className="text-2xl font-semibold">Plan your trip now</p>

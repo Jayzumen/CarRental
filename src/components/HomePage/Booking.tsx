@@ -18,7 +18,7 @@ const Booking = () => {
   const { reservationData, handleSubmit } = useReservationStore();
   const { status } = useSession();
   const { resolvedTheme } = useTheme();
-  const currentDate: string = new Date().toISOString().split("T")[0];
+  const currentDate = new Date().toISOString().split("T")[0] as string;
 
   const handleBooking = (e: FormEvent<HTMLFormElement>) => {
     if (status === "unauthenticated") {
