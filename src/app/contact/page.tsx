@@ -1,5 +1,5 @@
-import ContactForm from "@/components/ContactPage.tsx/ContactForm";
-import ContactInfo from "@/components/ContactPage.tsx/ContactInfo";
+import ContactForm from "@/components/ContactPage/ContactForm";
+import ContactInfo from "@/components/ContactPage/ContactInfo";
 import Banner from "@/components/util/Banner";
 import PageHeader from "@/components/util/PageHeader";
 import Link from "next/link";

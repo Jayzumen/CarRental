@@ -1,6 +1,8 @@
+import CarDetails from "@/components/CarModelsPage/CarDetails";
 import PageHeader from "@/components/util/PageHeader";
+import { cars } from "@/utils/carModels";
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 export const metadata = {
   title: "Car Models",
@@ -22,6 +24,34 @@ const CarModels = () => {
           <p className="text-lg font-semibold">/ Models</p>
         </div>
       </PageHeader>
+
+      <div className="flex flex-col gap-12 pb-24 pt-[500px]">
+        <div className="mx-auto flex max-w-[1200px] flex-wrap justify-center gap-12 px-2">
+          {cars.map((car) => (
+            <div
+              key={car.name}
+              className="flex flex-col gap-4 rounded-md border border-gray-500 p-4"
+            >
+              <div className="min-h-[220px]">
+                <Image
+                  height={200}
+                  width={300}
+                  src={car.image}
+                  alt={car.name}
+                />
+              </div>
+              <CarDetails car={car} />
+              <div className="border border-gray-400" />
+              <Link
+                href="/"
+                className="rounded-sm bg-red-500 p-4 text-center text-xl font-semibold text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white"
+              >
+                Book Ride
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

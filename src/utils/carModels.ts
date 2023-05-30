@@ -26,7 +26,7 @@ export const cars: Fleet[] = [
     price: 50,
     image: Benz_GLK,
     details: {
-      brand: "Benz",
+      brand: "Mercedes",
       model: "GLK",
       year: 2015,
       fuel: "Gasoline",
