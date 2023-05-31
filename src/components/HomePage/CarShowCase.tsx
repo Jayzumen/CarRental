@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { cars } from "@/utils/carModels";
 import { useFleetStore } from "@/stores/fleetStore";
+import ScrollLink from "../util/ScrollLink";
 
 const CarShowCase = () => {
   const { selectedFleet, setSelectedFleet } = useFleetStore();
@@ -112,9 +113,12 @@ const CarShowCase = () => {
               </tbody>
             </table>
             {/* Reserve Button */}
-            <button className="mt-4 bg-red-500 px-8 py-2 text-xl font-semibold text-white transition hover:bg-red-600">
+            <ScrollLink
+              href="#booking"
+              className="mt-4 bg-red-500 px-8 py-2 text-center text-xl font-semibold text-white transition hover:bg-red-600"
+            >
               RESERVE NOW
-            </button>
+            </ScrollLink>
           </div>
         </section>
       </div>
