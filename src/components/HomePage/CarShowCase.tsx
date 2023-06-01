@@ -49,7 +49,7 @@ const CarShowCase = () => {
                 <span className="text-3xl font-bold">
                   {selectedFleet.price}€
                 </span>{" "}
-                / rend per day
+                / rent per day
               </p>
             </div>
             <table className="w-full border-2 border-gray-500">
