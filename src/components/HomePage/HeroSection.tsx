@@ -24,7 +24,7 @@ const HeroSection = () => {
         <div className="flex flex-wrap justify-center gap-4 text-xl md:justify-start">
           <ScrollLink
             href="#booking"
-            className="flex items-center gap-2 rounded-sm bg-red-500 p-4 text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white"
+            className="flex items-center gap-2 rounded-sm bg-red-500 p-4 text-center text-xl font-semibold text-white transition duration-300 hover:bg-red-600"
           >
             <span className="font-semibold">Book a Ride</span>
             <AiFillCheckCircle size={15} />

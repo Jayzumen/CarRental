@@ -153,7 +153,7 @@ const Booking = () => {
           <div className="flex items-end justify-start">
             <button
               type="submit"
-              className="w-full rounded-sm bg-red-500 px-4 py-2 text-center text-xl text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white"
+              className="w-full rounded-sm bg-red-500 px-8 py-2 text-center text-xl font-semibold text-white transition duration-300 hover:bg-red-600"
             >
               Search
             </button>

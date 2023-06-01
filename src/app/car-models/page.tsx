@@ -44,7 +44,7 @@ const CarModels = () => {
               <div className="border border-gray-400" />
               <Link
                 href="/"
-                className="rounded-sm bg-red-500 p-4 text-center text-xl font-semibold text-white transition duration-300 hover:shadow-md hover:shadow-slate-900 dark:hover:shadow-white"
+                className="rounded-sm bg-red-500 p-4 text-center text-xl font-semibold text-white transition duration-300 hover:bg-red-600"
               >
                 Book Ride
               </Link>
