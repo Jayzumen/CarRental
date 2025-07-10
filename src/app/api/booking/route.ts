@@ -1,39 +1,21 @@
-import { prisma } from "@/lib/prismadb";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
-import { DBReservationData, ReservationData } from "@/types/reservation";
-
-export async function GET() {}
+import { db } from "@/utils/firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 export async function POST(req: Request) {
-  const body = (await req.json()) as ReservationData;
-
-  const session = await getServerSession(authOptions);
-
-  const user = await prisma.user.findUnique({
-    where: {
-      email: session?.user?.email!,
-    },
-  });
-
-  const data: DBReservationData = {
-    car: body.car,
-    price: body.price,
-    pickupLocation: body.pickupLocation,
-    dropoffLocation: body.dropoffLocation,
-    pickupDate: body.pickupDate,
-    dropoffDate: body.dropoffDate,
-    userId: user?.id!,
-  };
-
+  const body = await req.json();
   try {
-    await prisma.booking.create({
-      data,
+    await addDoc(collection(db, "bookings"), {
+      ...body,
+      createdAt: new Date().toISOString(),
     });
-
     return NextResponse.json({ message: "Booking created" });
   } catch (error) {
     return NextResponse.error();
   }
+}
+
+export async function GET() {
+  // Optionally implement fetching bookings from Firestore
+  return NextResponse.json({ message: "Not implemented" });
 }

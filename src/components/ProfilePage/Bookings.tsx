@@ -1,5 +1,15 @@
-import { Booking } from "@prisma/client";
 import React from "react";
+
+type Booking = {
+  id: string;
+  car: string;
+  pickupDate: string;
+  dropoffDate: string;
+  pickupLocation: string;
+  dropoffLocation: string;
+  price: number;
+  createdAt?: any;
+};
 
 type Props = {
   bookings: Booking[];
@@ -9,7 +19,10 @@ const Bookings = ({ bookings }: Props) => {
   return (
     <>
       {bookings
-        .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())
+        .sort(
+          (a, b) =>
+            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
+        )
         .slice(0, 4)
         .map((booking) => (
           <div

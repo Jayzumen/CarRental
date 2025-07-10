@@ -8,30 +8,50 @@ import { locations } from "@/utils/locations";
 import { useReservationModalStore } from "@/stores/modalStore";
 import ReservationModal from "../util/ReservationModal";
 import { useReservationStore } from "@/stores/reservationStore";
-import { useSession } from "next-auth/react";
-import { FormEvent } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { darkToast, lightToast } from "@/lib/toasts";
 import { useTheme } from "next-themes";
+import { auth, db } from "@/utils/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
+import { User } from "firebase/auth";
 
 const Booking = () => {
   const { isOpen, toggle } = useReservationModalStore();
   const { reservationData, handleSubmit } = useReservationStore();
-  const { status } = useSession();
   const { resolvedTheme } = useTheme();
   const currentDate = new Date().toISOString().split("T")[0] as string;
+  const [user, setUser] = useState<User | null>(null);
 
-  const handleBooking = (e: FormEvent<HTMLFormElement>) => {
-    if (status === "unauthenticated") {
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleBooking = async (e: FormEvent<HTMLFormElement>) => {
+    if (!user) {
       e.preventDefault();
       if (resolvedTheme === "light") {
         darkToast("You need to be logged in to book a car");
       } else {
         lightToast("You need to be logged in to book a car");
       }
+      return;
     }
-    if (status === "authenticated") {
+    e.preventDefault();
+    // Save booking to Firestore
+    try {
+      await addDoc(collection(db, "bookings"), {
+        ...reservationData,
+        userId: user.uid,
+        createdAt: new Date().toISOString(),
+      });
       handleSubmit(e);
       toggle();
+    } catch (error) {
+      darkToast("Failed to book car. Try again.");
     }
   };
 

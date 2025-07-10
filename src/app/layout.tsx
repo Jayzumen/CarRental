@@ -1,12 +1,24 @@
-import { MainProvider } from "@/lib/providers";
+import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { MainProvider } from "@/lib/providers";
+import { Inter, Great_Vibes } from "next/font/google";
 import Navbar from "@/components/Nav/Navbar";
 import Footer from "@/components/Footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const greatVibes = Great_Vibes({
+  weight: ["400"],
+  variable: "--font-great-vibes",
+  display: "swap",
+  subsets: ["latin"],
+});
 
-export const metadata = {
+const inter = Inter({
+  variable: "--font-inter",
+  display: "swap",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
   title: "Car Rental",
   description: "Car Rental Website",
 };
@@ -17,8 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className + "bg-slate-100 dark:bg-[#121212]"}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${greatVibes.variable} flex min-h-screen flex-col`}
+      >
         <MainProvider>
           <Navbar />
           <main className="min-h-screen">{children}</main>
