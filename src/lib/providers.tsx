@@ -1,27 +1,28 @@
 "use client";
+
 import { ThemeProvider } from "next-themes";
-import { SessionProvider } from "next-auth/react";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "sonner";
+import { AuthProvider } from "@/components/auth/AuthProvider";
 
-const ThemeProviders = ({ children }: { children: React.ReactNode }) => {
-  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
-};
-
-const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  return <SessionProvider>{children}</SessionProvider>;
-};
-
-const ToastProvider = () => {
-  return <Toaster position="top-center" reverseOrder={false} />;
-};
-
-export const MainProvider = ({ children }: { children: React.ReactNode }) => {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProviders>
-      <AuthProvider>
-        {children}
-        <ToastProvider />
-      </AuthProvider>
-    </ThemeProviders>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <AuthProvider>{children}</AuthProvider>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          classNames: {
+            toast:
+              "!rounded-2xl !border !border-border !bg-popover !text-popover-foreground !shadow-lift",
+            description: "!text-muted-foreground",
+          },
+        }}
+      />
+    </ThemeProvider>
   );
-};
+}

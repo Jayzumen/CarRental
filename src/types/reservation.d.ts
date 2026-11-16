@@ -1,15 +1,15 @@
-import { StaticImageData } from "next/image";
-
-interface ReservationData {
+export interface ReservationData {
   pickupDate: string;
   dropoffDate: string;
   pickupLocation: string;
   dropoffLocation: string;
   car: string;
-  image?: StaticImageData | undefined;
   price: number;
+  userId?: string;
 }
 
-interface DBReservationData extends ReservationData {
+export interface Booking extends ReservationData {
+  id: string;
   userId: string;
+  createdAt: string;
 }
