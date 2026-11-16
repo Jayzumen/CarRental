@@ -9,31 +9,22 @@ type Props = {
   className?: string;
 };
 
-/**
- * Studio shots (white background) sit in a neutral "well" and blend into it;
- * lifestyle photos fill the frame.
- */
 export function CarImage({ car, sizes, priority, className }: Props) {
-  const studio = car.photo === "studio";
   return (
     <div
       className={cn(
-        "relative aspect-[16/10] overflow-hidden",
-        studio && "image-well",
+        "relative aspect-[16/10] overflow-hidden bg-muted",
         className,
       )}
     >
       <Image
         src={car.image}
-        alt={`${car.name}`}
+        alt={car.name}
         fill
         sizes={sizes}
         priority={priority}
-        placeholder={studio ? "empty" : "blur"}
-        className={cn(
-          "transition-transform duration-500 ease-out",
-          studio ? "object-contain p-6" : "object-cover",
-        )}
+        placeholder="blur"
+        className="object-cover transition-transform duration-500 ease-out"
       />
     </div>
   );

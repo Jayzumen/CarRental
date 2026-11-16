@@ -16,14 +16,7 @@ export function CarCard({ car, priority }: { car: Car; priority?: boolean }) {
           sizes="(min-width: 1280px) 400px, (min-width: 768px) 50vw, 100vw"
           className="[&_img]:group-hover:scale-[1.04]"
         />
-        <Badge
-          variant={car.photo === "lifestyle" ? "glass" : "outline"}
-          className={
-            car.photo === "lifestyle"
-              ? "absolute top-4 left-4 bg-black/30"
-              : "absolute top-4 left-4 bg-white/80 text-neutral-600"
-          }
-        >
+        <Badge variant="glass" className="absolute top-4 left-4 bg-black/30">
           {car.category}
         </Badge>
       </div>

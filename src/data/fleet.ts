@@ -1,10 +1,12 @@
 import type { StaticImageData } from "next/image";
-import audiA1 from "@/assets/cars/audia1.jpg";
-import benzGlk from "@/assets/cars/benz.jpg";
-import bmw320 from "@/assets/cars/bmw320.jpg";
-import golf6 from "@/assets/cars/golf6.jpg";
-import passatCc from "@/assets/cars/passatcc.jpg";
-import toyotaCamry from "@/assets/cars/toyotacamry.jpg";
+// Photos: Unsplash License — see src/assets/CREDITS.md
+import audiA1 from "@/assets/cars/audi-a1-sportback.jpg";
+import vwGolfR from "@/assets/cars/vw-golf-r.jpg";
+import bmw6Gc from "@/assets/cars/bmw-6-gran-coupe.jpg";
+import vwPassat from "@/assets/cars/vw-passat.jpg";
+import volvoXc60 from "@/assets/cars/volvo-xc60.jpg";
+import amgGle from "@/assets/cars/mercedes-amg-gle-coupe.jpg";
+import audiRs3 from "@/assets/cars/audi-rs3-sedan.jpg";
 import audiRs7 from "@/assets/premium-cars/audi-rs7.jpg";
 import bmwM2 from "@/assets/premium-cars/bmw-m2.jpg";
 import bmwM4 from "@/assets/premium-cars/bmw-m4.jpg";
@@ -25,106 +27,113 @@ export interface Car {
   doors: number;
   ac: boolean;
   image: StaticImageData;
-  /** Studio shots on white vs. lifestyle photography */
-  photo: "studio" | "lifestyle";
 }
 
 export const fleet: Car[] = [
   {
-    slug: "audi-a1-s-line",
-    name: "Audi A1 S-Line",
+    slug: "audi-a1-sportback",
+    name: "Audi A1 Sportback",
     brand: "Audi",
-    model: "A1 S-Line",
+    model: "A1 Sportback S line",
     category: "Compact",
     price: 45,
-    year: 2021,
-    fuel: "Petrol",
-    gearbox: "Automatic",
-    seats: 4,
-    doors: 5,
-    ac: true,
-    image: audiA1,
-    photo: "studio",
-  },
-  {
-    slug: "vw-golf",
-    name: "Volkswagen Golf",
-    brand: "Volkswagen",
-    model: "Golf",
-    category: "Compact",
-    price: 40,
-    year: 2020,
-    fuel: "Petrol",
-    gearbox: "Manual",
-    seats: 5,
-    doors: 5,
-    ac: true,
-    image: golf6,
-    photo: "studio",
-  },
-  {
-    slug: "bmw-320",
-    name: "BMW 320",
-    brand: "BMW",
-    model: "320",
-    category: "Sedan",
-    price: 55,
     year: 2022,
     fuel: "Petrol",
     gearbox: "Automatic",
     seats: 5,
-    doors: 4,
+    doors: 5,
     ac: true,
-    image: bmw320,
-    photo: "studio",
+    image: audiA1,
   },
   {
-    slug: "vw-passat-cc",
-    name: "Volkswagen Passat CC",
+    slug: "vw-golf-r",
+    name: "Volkswagen Golf R",
     brand: "Volkswagen",
-    model: "Passat CC",
+    model: "Golf R",
+    category: "Compact",
+    price: 59,
+    year: 2020,
+    fuel: "Petrol",
+    gearbox: "Automatic",
+    seats: 5,
+    doors: 5,
+    ac: true,
+    image: vwGolfR,
+  },
+  {
+    slug: "vw-passat",
+    name: "Volkswagen Passat",
+    brand: "Volkswagen",
+    model: "Passat R-Line",
     category: "Sedan",
-    price: 48,
-    year: 2019,
+    price: 52,
+    year: 2021,
     fuel: "Diesel",
-    gearbox: "Manual",
+    gearbox: "Automatic",
     seats: 5,
     doors: 4,
     ac: true,
-    image: passatCc,
-    photo: "studio",
+    image: vwPassat,
   },
   {
-    slug: "toyota-camry",
-    name: "Toyota Camry",
-    brand: "Toyota",
-    model: "Camry",
+    slug: "bmw-6-gran-coupe",
+    name: "BMW 6 Series Gran Coupé",
+    brand: "BMW",
+    model: "6 Series Gran Coupé",
     category: "Sedan",
-    price: 50,
-    year: 2021,
+    price: 89,
+    year: 2018,
     fuel: "Petrol",
     gearbox: "Automatic",
     seats: 5,
     doors: 4,
     ac: true,
-    image: toyotaCamry,
-    photo: "studio",
+    image: bmw6Gc,
   },
   {
-    slug: "mercedes-glk",
-    name: "Mercedes-Benz GLK",
-    brand: "Mercedes-Benz",
-    model: "GLK",
+    slug: "volvo-xc60",
+    name: "Volvo XC60",
+    brand: "Volvo",
+    model: "XC60",
     category: "SUV",
-    price: 62,
-    year: 2020,
+    price: 72,
+    year: 2021,
     fuel: "Diesel",
     gearbox: "Automatic",
     seats: 5,
     doors: 5,
     ac: true,
-    image: benzGlk,
-    photo: "studio",
+    image: volvoXc60,
+  },
+  {
+    slug: "mercedes-amg-gle-coupe",
+    name: "Mercedes-AMG GLE Coupé",
+    brand: "Mercedes-AMG",
+    model: "GLE Coupé",
+    category: "SUV",
+    price: 129,
+    year: 2022,
+    fuel: "Petrol",
+    gearbox: "Automatic",
+    seats: 5,
+    doors: 5,
+    ac: true,
+    image: amgGle,
+  },
+  {
+    slug: "audi-rs3-sedan",
+    name: "Audi RS 3 Sedan",
+    brand: "Audi",
+    model: "RS 3 Sedan",
+    category: "Performance",
+    price: 119,
+    year: 2020,
+    fuel: "Petrol",
+    gearbox: "Automatic",
+    seats: 5,
+    doors: 4,
+    ac: true,
+    image: audiRs3,
   },
   {
     slug: "bmw-m2",
@@ -140,7 +149,6 @@ export const fleet: Car[] = [
     doors: 2,
     ac: true,
     image: bmwM2,
-    photo: "lifestyle",
   },
   {
     slug: "bmw-m4",
@@ -156,7 +164,6 @@ export const fleet: Car[] = [
     doors: 2,
     ac: true,
     image: bmwM4,
-    photo: "lifestyle",
   },
   {
     slug: "audi-rs7",
@@ -172,7 +179,6 @@ export const fleet: Car[] = [
     doors: 5,
     ac: true,
     image: audiRs7,
-    photo: "lifestyle",
   },
 ];
 

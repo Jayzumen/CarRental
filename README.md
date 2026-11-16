@@ -78,7 +78,6 @@ All tokens live in `src/app/globals.css` and are exposed as Tailwind utilities.
 | `foreground` / `muted-foreground`       | Primary and secondary text                         |
 | `primary` / `primary-soft`              | Signal red, used only for actions and highlights   |
 | `ink` / `ink-foreground` / `ink-muted`  | Deep, high-contrast bands (CTA, feature tiles)     |
-| `well`                                  | Neutral backdrop for studio car photos             |
 | `shadow-soft` / `shadow-lift`           | Resting and hover elevation                        |
 
 - **Type:** Geist (one variable font via `next/font`), tight tracking on headings, `tabular-nums` for prices.

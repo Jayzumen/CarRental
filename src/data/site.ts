@@ -38,7 +38,7 @@ export const locations = [
 
 export const stats = [
   { value: "12", label: "Cities in Germany" },
-  { value: "9", label: "Curated models" },
+  { value: "10", label: "Curated models" },
   { value: "4.9", label: "Average rating" },
   { value: "24/7", label: "Roadside support" },
 ];
@@ -53,7 +53,7 @@ export const testimonials = [
   },
   {
     quote:
-      "We rented the GLK for a family trip to the Alps. Clear pricing, no surprise fees and a friendly team when we extended by a day.",
+      "We rented the XC60 for a family trip to the Alps. Clear pricing, no surprise fees and a friendly team when we extended by a day.",
     name: "Markus Weber",
     role: "Family trip",
     city: "Munich",
