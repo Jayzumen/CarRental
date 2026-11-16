@@ -37,7 +37,7 @@ export const fleet: Car[] = [
     model: "A1 Sportback S line",
     category: "Compact",
     price: 45,
-    year: 2022,
+    year: 2018,
     fuel: "Petrol",
     gearbox: "Automatic",
     seats: 5,
