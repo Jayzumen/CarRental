@@ -1,8 +1,10 @@
 "use client";
-import { ThemeProvider } from "@/components/util/theme-provider";
-import { Toaster } from "react-hot-toast";
 
-const ThemeProviders = ({ children }: { children: React.ReactNode }) => {
+import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
+import { AuthProvider } from "@/components/auth/AuthProvider";
+
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider
       attribute="class"
@@ -10,20 +12,17 @@ const ThemeProviders = ({ children }: { children: React.ReactNode }) => {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <AuthProvider>{children}</AuthProvider>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          classNames: {
+            toast:
+              "!rounded-2xl !border !border-border !bg-popover !text-popover-foreground !shadow-lift",
+            description: "!text-muted-foreground",
+          },
+        }}
+      />
     </ThemeProvider>
   );
-};
-
-const ToastProvider = () => {
-  return <Toaster position="top-center" reverseOrder={false} />;
-};
-
-export const MainProvider = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ThemeProviders>
-      {children}
-      <ToastProvider />
-    </ThemeProviders>
-  );
-};
+}
