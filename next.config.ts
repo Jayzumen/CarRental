@@ -4,8 +4,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 60 * 60 * 24 * 30,
+    // Serve images as-is instead of through Vercel's Image Optimization,
+    // whose free-tier quota runs out and then breaks every image on the
+    // live site. The source photos in src/assets are pre-compressed instead.
+    unoptimized: true,
   },
   experimental: {
     optimizePackageImports: ["lucide-react"],
